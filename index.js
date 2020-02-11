@@ -95,11 +95,11 @@ server.put('/api/users/:id',(req, res) => {
         }
         })
         .then( user =>{ 
-                    Users.update(id,data)
+                    Users.update(user.id,data)
                         .then(updatedUser => res.status(200).json(updatedUser))
-                    .catch(err => {
-                        console.log(err)
-                        res.status(500).json({ errorMessage: "The user could not be updated" })
+                        .catch(err => {
+                            console.log(err)
+                            res.status(500).json({ errorMessage: "The user could not be updated" })
                     })
                 })
         .catch(err => {
